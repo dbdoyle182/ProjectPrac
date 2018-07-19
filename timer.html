@@ -172,10 +172,31 @@
             </script>
             </select>
             <tr>
-                    
+                    <P> At what time would you like to be reminded of your goal?</P>
+                    <div id="main">
+                      <input type="time" id="mytime">
+                        <button id="btn"> start </button>
+                      </div>
+               
+                <script> 
+                var timer = document.getElementById("mytime");
+var counter = setInterval(function(){
+  countdown()}, 1000);
+//user clicks the 'start' button and timer starts counting down
 
-                        <td id="snooze-ct">
-                                How often would you like to be reminded?               
+function countdown(minutes, seconds){ 
+  timer.value = "17:30:00"; //default value
+  document.getElementById("btn").innterHTML = counter;
+  counter--;
+};
+
+
+var click = document.getElementById("btn");
+btn.addEventListener("click", countdown); 
+btn.addEventListener("click", stopcounting);
+                </script>
+<div> 
+                        <td id="snooze-ct"><a> How often would you like to be reminded? </a>              
                                 <button type="button">Start!</button>
                     <select id="snooze-time">
                         <option value="5">Daily</option>
