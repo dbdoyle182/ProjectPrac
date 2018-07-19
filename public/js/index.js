@@ -6,26 +6,26 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+    saveExample: function(example) {
     return $.ajax({
-      headers: {
+            headers: {
         "Content-Type": "application/json"
-      },
+            },
       type: "POST",
-      url: "api/examples",
+            url: "api/examples",
       data: JSON.stringify(example)
     });
   },
   getExamples: function() {
     return $.ajax({
       url: "api/examples",
-      type: "GET"
+            type: "GET"
     });
   },
   deleteExample: function(id) {
-    return $.ajax({
+        return $.ajax({
       url: "api/examples/" + id,
-      type: "DELETE"
+            type: "DELETE"
     });
   }
 };
@@ -34,28 +34,28 @@ var API = {
 var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
-      var $a = $("<a>")
+            var $a = $("<a>")
         .text(example.text)
-        .attr("href", "/example/" + example.id);
+                .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
           "data-id": example.id
-        })
-        .append($a);
+                })
+                .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
+                .addClass("btn btn-danger float-right delete")
         .text("ｘ");
 
       $li.append($button);
 
       return $li;
-    });
+        });
 
     $exampleList.empty();
-    $exampleList.append($examples);
+        $exampleList.append($examples);
   });
 };
 
@@ -67,16 +67,16 @@ var handleFormSubmit = function(event) {
   var example = {
     text: $exampleText.val().trim(),
     description: $exampleDescription.val().trim()
-  };
+    };
 
   if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+        alert("You must enter an example text and description!");
     return;
-  }
+    }
 
   API.saveExample(example).then(function() {
-    refreshExamples();
-  });
+        refreshExamples();
+    });
 
   $exampleText.val("");
   $exampleDescription.val("");
@@ -86,12 +86,12 @@ var handleFormSubmit = function(event) {
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+        .parent()
+        .attr("data-id");
 
   API.deleteExample(idToDelete).then(function() {
     refreshExamples();
-  });
+    });
 };
 
 // Add event listeners to the submit and delete buttons
