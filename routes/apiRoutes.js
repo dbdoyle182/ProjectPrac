@@ -1,24 +1,38 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+  // Get all goals of one user
+  app.get("/api/user_info/:id", function(req, res) {
+    db.User_input.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [{ all: true }]
+    }).then(function(userGoals) {
+      res.json(userGoals);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Create a new goal
+  app.post("/api/goals", function(req, res) {
+    db.Goals.create({
+      goal: req.user.goal,
+      remindTime: req.body.remindTime,
+      progressCheck: req.body.progressCheck,
+      completed: req.body.completed
+    }).then(function(newGoal) {
+      res.json(newGoal);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // Delete a goal by id
+  app.delete("/api/user_info/:id", function(req, res) {
+    db.Goal.destroy({ where: { id: req.params.id } }).then(function(
+      deleteGoal
+    ) {
+      res.json(deleteGoal);
     });
   });
 };
+
+// Updating a goal by id
