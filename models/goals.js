@@ -6,5 +6,8 @@ module.exports = function (sequelize, DataTypes) {
     completed: DataTypes.BOOLEAN,
     token: DataTypes.STRING
   });
+  // Goal.associate = function (models) {
+
+  // }
   return Goal;
 };
