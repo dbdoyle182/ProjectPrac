@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Goal.associate = function(models) {
-    Goal.belongsTo(models.User_input, {
+    Goal.belongsTo(models.User_info, {
       foreignKey: {
         allowNull: false
       }
