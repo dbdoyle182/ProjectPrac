@@ -3,7 +3,7 @@ module.exports = function(sequelize, DataTypes) {
     name: DataTypes.STRING,
     email: DataTypes.STRING,
         password: DataTypes.STRING,
-        phoneNumber: DataTypes.INETEGER(10),
+        phoneNumber: DataTypes.INTEGER(10),
         token: DataTypes.STRING
     });
 

@@ -4,11 +4,11 @@ module.exports = function(app) {
   // Load index page
 
   app.get("/", function(req, res) {
-    res.render(index.handlebars);
+    res.render("index");
   });
 
   app.get("/register", function(req, res) {
-    res.render(register.handlebars);
+    res.render("register");
   });
 
   app.get("/user/:id", function(req, res) {
