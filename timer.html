@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Reminder</title>
+    <style type="text/css">
+        #jsalarmclock {
+            font-family: Tahoma;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        #jsalarmclock div {
+            margin-bottom: 0.8em;
+        }
+
+        #jsalarmclock div.leftcolumn {
+            float: left;
+            width: 150px;
+            font-size: 13px;
+            background-color: lightyellow;
+            clear: left;
+        }
+
+        #jsalarmclock span {
+            margin-right: 5px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var jsalarm = {
+            padfield: function (f) {
+                return (f < 10) ? "0" + f : f
+            },
+            showcurrenttime: function () {
+                var dateobj = new Date()
+                var ct = this.padfield(dateobj.getHours()) + ":" + this.padfield(dateobj.getMinutes()) + ":" + this.padfield(dateobj.getSeconds())
+                this.ctref.innerHTML = ct
+                this.ctref.setAttribute("title", ct)
+                if (typeof this.hourwake != "undefined") {
+                    if (this.ctref.title == (this.hourwake + ":" + this.minutewake + ":" + this.secondwake)) {
+                        clearInterval(jsalarm.timer)
+                        window.location = document.getElementById("musicloc").value
+                    }
+                }
+            },
+            init: function () {
+                var dateobj = new Date()
+                this.ctref = document.getElementById("jsalarm_ct")
+                this.submitref = document.getElementById("submitbutton")
+                this.submitref.onclick = function () {
+                    jsalarm.setalarm()
+                    this.value = "Reminder Set"
+                    this.disabled = true
+                    return false
+                }
+                this.resetref = document.getElementById("resetbutton")
+                this.resetref.onclick = function () {
+                    jsalarm.submitref.disabled = false
+                    jsalarm.hourwake = undefined
+                    jsalarm.hourselect.disabled = false
+                    jsalarm.minuteselect.disabled = false
+                    jsalarm.secondselect.disabled = false
+                    return false
+                }
+                var selections = document.getElementsByTagName("select")
+                this.hourselect = selections[0]
+                this.minuteselect = selections[1]
+                this.secondselect = selections[2]
+                for (var i = 0; i < 60; i++) {
+                    if (i < 24)
+                        this.hourselect[i] = new Option(this.padfield(i), this.padfield(i), false, dateobj.getHours() == i)
+                    this.minuteselect[i] = new Option(this.padfield(i), this.padfield(i), false, dateobj.getMinutes() == i)
+                    this.secondselect[i] = new Option(this.padfield(i), this.padfield(i), false, dateobj.getSeconds() == i)
+
+                }
+                jsalarm.showcurrenttime()
+                jsalarm.timer = setInterval(function () { jsalarm.showcurrenttime() }, 1000)
+            },
+            setalarm: function () {
+                this.hourwake = this.hourselect.options[this.hourselect.selectedIndex].value
+                this.minutewake = this.minuteselect.options[this.minuteselect.selectedIndex].value
+                this.secondwake = this.secondselect.options[this.secondselect.selectedIndex].value
+                this.hourselect.disabled = true
+                this.minuteselect.disabled = true
+                this.secondselect.disabled = true
+            }
+        }
+
+    </script>
+    </style>
+</head>
+
+<body>
+
+    <p id="demo"></p>
+
+    <script>
+        var countDownDate = new Date("jsalarmclock").getTime();
+
+        var x = setInterval(function () {
+
+            var now = new Date().getTime();
+
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("leftcolumn").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
+
+    <body>
+
+
+        <div>
+            <div id="goal">Goals:
+                <div id="movies-view"></div>
+
+                <form id="movie-form">
+                    <label for="movie-input">Add Goal</label>
+                    <input type="text" id="movie-input">
+                    <br>
+
+                    <input id="add-movie" type="submit" value="Add a goal ">
+                </form>
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script type="text/javascript">
+                    var movies = ["Work Out", "Cleaning", "Studies",];
+
+                    function renderButtons() {
+
+                        $("#movies-view").empty();
+
+                        for (var i = 0; i < movies.length; i++) {
+
+                            var a = $("<button>");
+                            a.addClass("movie");
+                            a.attr("data-name", movies[i]);
+                            a.text(movies[i]);
+                            $("#movies-view").append(a);
+                        }
+                    }
+
+                    $("#add-movie").on("click", function (event) {
+                        event.preventDefault();
+
+                        var movie = $("#movie-input").val().trim();
+                        movies.push(movie);
+
+                        renderButtons();
+                    });
+
+                    renderButtons();
+                </script>
+            </div>
+
+            </script>
+            </select>
+            <tr>
+                    
+
+                        <td id="snooze-ct">
+                                How often would you like to be reminded?               
+                                <button type="button">Start!</button>
+                    <select id="snooze-time">
+                        <option value="5">Daily</option>
+                        <option value="10">Every 2 days</option>
+                        <option value="15">Every 3 days</option>
+                        <option value="30">Every 4 days</option>
+                        <option value="60">Every 5 days</option>
+                        <option value="120">Every 6 days</option>
+                        <option value="240">Every 7 days</option>
+                        <option value="10080">Every 1 week</option>
+                        <option value="20160">Every 2 weeks</option>
+                        <option value="30240">Every 3 weeks</option>
+                        <option value="40320">Every 4 weeks</option>  
+                        <div> </div>
+                
+                        <script type="text/javascript">
+
+                            jsalarm.init()
+
+                        </script>
+                        </li>
+                        </ul>
+    </body>
+
+</html>
