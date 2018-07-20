@@ -131,7 +131,7 @@
                 <div id="movies-view"></div>
 
                 <form id="movie-form">
-                    <label for="movie-input">Add Goal</label>
+                    <label for="movie-input"></label>
                     <input type="text" id="movie-input">
                     <br>
 
@@ -172,20 +172,24 @@
             </script>
             </select>
             <tr>
+
+
                     <P> At what time would you like to be reminded of your goal?</P>
                     <div id="main">
                       <input type="time" id="mytime">
                         <button id="btn"> start </button>
                       </div>
-               
+
+
+                      <p>When would you like to be done with your goal?</p>
+
                 <script> 
                 var timer = document.getElementById("mytime");
 var counter = setInterval(function(){
   countdown()}, 1000);
-//user clicks the 'start' button and timer starts counting down
 
 function countdown(minutes, seconds){ 
-  timer.value = "17:30:00"; //default value
+  timer.value = "17:30:00"; 
   document.getElementById("btn").innterHTML = counter;
   counter--;
 };
@@ -194,10 +198,11 @@ function countdown(minutes, seconds){
 var click = document.getElementById("btn");
 btn.addEventListener("click", countdown); 
 btn.addEventListener("click", stopcounting);
-                </script>
+
+</script>
 <div> 
                         <td id="snooze-ct"><a> How often would you like to be reminded? </a>              
-                                <button type="button">Start!</button>
+                               
                     <select id="snooze-time">
                         <option value="5">Daily</option>
                         <option value="10">Every 2 days</option>
@@ -211,7 +216,7 @@ btn.addEventListener("click", stopcounting);
                         <option value="30240">Every 3 weeks</option>
                         <option value="40320">Every 4 weeks</option>  
                         <div> </div>
-                
+                        <button type="button">Start!</button>
                         <script type="text/javascript">
 
                             jsalarm.init()
