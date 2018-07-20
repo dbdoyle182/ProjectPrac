@@ -123,86 +123,88 @@
         }, 1000);
     </script>
 
-    <body>
 
+    <div>
+        <div id="goal">Goals:
+            <div id="goal-view"></div>
 
-        <div>
-            <div id="goal">Goals:
-                <div id="movies-view"></div>
+            <form id="go-form">
+                <label for="go-input"></label>
+                <input type="text" id="go-input">
+                <br>
 
-                <form id="movie-form">
-                    <label for="movie-input"></label>
-                    <input type="text" id="movie-input">
-                    <br>
+                <input id="add-go" type="submit" value="Add a goal ">
+            </form>
 
-                    <input id="add-movie" type="submit" value="Add a goal ">
-                </form>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript">
+                var goal = [];
 
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script type="text/javascript">
-                    var movies = ["Work Out", "Cleaning", "Studies",];
+                function renderButtons() {
 
-                    function renderButtons() {
+                    $("#goal-view").empty();
 
-                        $("#movies-view").empty();
+                    for (var i = 0; i < goal.length; i++) {
 
-                        for (var i = 0; i < movies.length; i++) {
-
-                            var a = $("<button>");
-                            a.addClass("movie");
-                            a.attr("data-name", movies[i]);
-                            a.text(movies[i]);
-                            $("#movies-view").append(a);
-                        }
+                        var a = $("<button>");
+                        a.addClass("go");
+                        a.attr("data-name", goal[i]);
+                        a.text(goal[i]);
+                        $("#goal-view").append(a);
                     }
+                }
 
-                    $("#add-movie").on("click", function (event) {
-                        event.preventDefault();
+                $("#add-go").on("click", function (event) {
+                    event.preventDefault();
 
-                        var movie = $("#movie-input").val().trim();
-                        movies.push(movie);
-
-                        renderButtons();
-                    });
+                    var go = $("#go-input").val().trim();
+                    goal.push(go);
 
                     renderButtons();
-                </script>
+                });
+
+                renderButtons();
+            </script>
+        </div>
+
+        </script>
+        </select>
+        <tr>
+
+
+            <P> At what time would you like to be reminded of your goal?</P>
+            <div id="main">
+                <input type="time" id="mytime">
+                <button id="btn"> Start </button>
+            </div>
+            
+            <p>When would you like to be done with your goal?</p>
+            <div id="main">
+                <input type="time" id="mytime">
+                <button id="btn"> Start </button>
             </div>
 
-            </script>
-            </select>
-            <tr>
-
-
-                    <P> At what time would you like to be reminded of your goal?</P>
-                    <div id="main">
-                      <input type="time" id="mytime">
-                        <button id="btn"> start </button>
-                      </div>
-
-
-                      <p>When would you like to be done with your goal?</p>
-
-                <script> 
+            <script> 
                 var timer = document.getElementById("mytime");
-var counter = setInterval(function(){
-  countdown()}, 1000);
+                var counter = setInterval(function () {
+                    countdown()
+                }, 1000);
 
-function countdown(minutes, seconds){ 
-  timer.value = "17:30:00"; 
-  document.getElementById("btn").innterHTML = counter;
-  counter--;
-};
-
-
+                function countdown(minutes, seconds) {
+                    timer.value = "17:30:00";
+                    document.getElementById("btn").innterHTML = counter;
+                    counter--;
+                };
 var click = document.getElementById("btn");
-btn.addEventListener("click", countdown); 
-btn.addEventListener("click", stopcounting);
 
-</script>
-<div> 
-                        <td id="snooze-ct"><a> How often would you like to be reminded? </a>              
-                               
+                btn.addEventListener("click", countdown);
+                btn.addEventListener("click", stopcounting);
+
+            </script>
+            <div>
+                <td id="snooze-ct">
+                    <a> How often would you like to be reminded?</a>
+
                     <select id="snooze-time">
                         <option value="5">Daily</option>
                         <option value="10">Every 2 days</option>
@@ -214,16 +216,16 @@ btn.addEventListener("click", stopcounting);
                         <option value="10080">Every 1 week</option>
                         <option value="20160">Every 2 weeks</option>
                         <option value="30240">Every 3 weeks</option>
-                        <option value="40320">Every 4 weeks</option>  
+                        <option value="40320">Every 4 weeks</option>
                         <div> </div>
                         <button type="button">Start!</button>
-                        <script type="text/javascript">
+                        <script type="text/timer.js">
 
                             jsalarm.init()
 
                         </script>
                         </li>
                         </ul>
-    </body>
+</body>
 
 </html>
