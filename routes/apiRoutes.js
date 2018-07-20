@@ -56,3 +56,5 @@ module.exports = function(app) {
   });
 
 };
+
+// Updating a goal by id

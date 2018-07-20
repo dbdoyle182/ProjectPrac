@@ -5,6 +5,7 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
+<<<<<<< HEAD
 
   app.get("/", function(req, res) {
     // If the user already has an account send them to the members page
@@ -20,6 +21,41 @@ module.exports = function(app) {
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/login.html"));
+=======
+  // Load index page
+
+  app.get("/", function(req, res) {
+    res.render("index");
+  });
+
+  app.get("/register", function(req, res) {
+    res.render("register");
+  });
+
+  app.get("/user/:id", function(req, res) {
+    db.User_input.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [{ all: true }]
+    }).then(function(user) {
+      res.render("user", {
+        user: user,
+        goals: user.Goal
+      });
+    });
+  });
+
+  // Load example page and pass in an example by id
+  app.get("/example/:id", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+      dbExample
+    ) {
+      res.render("example", {
+        example: dbExample
+      });
+    });
+>>>>>>> d778e25c058f0b34782662745d83efcc2f06954f
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -27,5 +63,9 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
+<<<<<<< HEAD
 
 };
+=======
+}
+>>>>>>> d778e25c058f0b34782662745d83efcc2f06954f
