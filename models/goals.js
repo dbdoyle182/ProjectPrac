@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
   // }
 
   Goal.associate = function(models) {
-    Goal.belongsTo(models.User_info, {
+    Goal.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
