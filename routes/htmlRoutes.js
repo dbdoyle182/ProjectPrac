@@ -27,4 +27,15 @@ module.exports = function(app) {
   app.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
+
+  // test route
+
+  app.get("/test", isAuthenticated, function(req, res){
+    // res.send("the goal info will show up here!");
+    res.redirect("/calendar/:" + req.user.id);
+  })
+
+  app.get("/calendar/:id", function(req, res){
+    res.send("This is your user id: " + req.user.id + " . We can post the data for this goal on this page!");
+  })
 };
