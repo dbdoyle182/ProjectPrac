@@ -55,14 +55,15 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/api/goalsform", function(req, res){
+  app.post("/api/goalForm", function(req, res){
     // console.log(req.body);
 // We're having trouble assoiciating our two tables, look into the sequelize docs on how to assoicate and then create data with associations
 
     let goalsObj = {
       goal: req.body.goal,
-      remindTime: req.body.remindTime,
-      progressCheck: req.body.progressCheck,
+      // remindTime: req.body.remindTime,
+      // progressCheck: req.body.progressCheck,
+      goalDate: req.body.goalDate,
       completed: req.body.completed,
       UserId: req.body.UserInfoId
     }

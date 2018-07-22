@@ -4,12 +4,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    remindTime: {
-      type: DataTypes.TIME,
-      allowNull: true
-    },
-    progressCheck: {
-      type: DataTypes.TIME,
+    // remindTime: {
+    //   type: DataTypes.TIME,
+    //   allowNull: true
+    // },
+    // progressCheck: {
+    //   type: DataTypes.TIME,
+    //   allowNull: false
+    // },
+    goalDate: {
+      type: DataTypes.DATE,
       allowNull: false
     },
     completed: {
