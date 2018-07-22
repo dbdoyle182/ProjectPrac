@@ -2,23 +2,20 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "blogger",
-    "host": "127.0.0.1",
+    "database": "accountably_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "accountably_db",
+    "host": "localhost",
     "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
-    },
-    "test": {
-      "username": "root",
-      "password": "root",
-      "database": "accountably_db",
-      "host": "localhost",
-      "dialect": "mysql",
-      "logging": false
-    },
-    "production": {
-      "use_env_variable": "JAWSDB_URL",
-      "dialect": "mysql"
-    }
+    "logging": false
+  },
+  "production": {
+    "use_env_variable": "JAWSDB_URL",
+    "dialect": "mysql"
   }
 }
