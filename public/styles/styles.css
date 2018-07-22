@@ -26,7 +26,6 @@ label {
 .logo {
   height: 170px;
   width: 500px;
-  background-image: URL("../img/logo3.png");
   background-repeat: no-repeat;
   display: block;
   margin-left: auto;
@@ -54,4 +53,14 @@ h5 {
   background: linear-gradient( #e7a516, #d69915);
   padding-left: 25px;
   padding-right: 25px;
+}
+
+#caleandar {
+  background-color: #e9e9e9;
+  width: 745px;
+  height: 525px;
+  margin-left: 20%;
+  margin-right: 25%;
+  border-radius: 5px;
+  padding: 40px;
 }
