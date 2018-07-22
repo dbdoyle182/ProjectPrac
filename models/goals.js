@@ -17,9 +17,6 @@ module.exports = function(sequelize, DataTypes) {
       default: false
     }
   });
-  // Goal.associate = function (models) {
-
-  // }
 
   Goal.associate = function(models) {
     Goal.belongsTo(models.User, {
