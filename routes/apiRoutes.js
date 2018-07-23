@@ -65,7 +65,7 @@ module.exports = function(app) {
       // progressCheck: req.body.progressCheck,
       goalDate: req.body.goalDate,
       completed: req.body.completed,
-      UserId: req.body.UserInfoId
+      UserId: req.body.UserId
     }
 
     console.log(goalsObj);
