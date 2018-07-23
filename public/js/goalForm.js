@@ -1,11 +1,13 @@
 $(document).ready(function () {
 console.log("This loaded properly!")
-  var newGoal = $("#newGoal").val().trim();
-  var goalDate = $("#goalDate").val().trim()
-
+  
   
 
   $("#submit_btn").on("click", function() {
+    var newGoal = $("#newGoal").val().trim();
+    var goalDate = $("#goalDate").val().trim()
+    var UserId = 1
+  
       console.log("CLICK")
       console.log("New Goal: ", newGoal)
       console.log("Goal Date: ", goalDate)
@@ -16,7 +18,9 @@ console.log("This loaded properly!")
         } else {
             var goal = {
                 goal: newGoal,
-                goalDate: goalDate
+                goalDate: goalDate,
+                UserId: UserId
+
             }
             console.log(goal)
             $.post("/api/goalForm", goal, function (data) {

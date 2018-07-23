@@ -55,6 +55,12 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/api/goalDisplay", function(req, res) {
+    db.Goal.findAll({}).then(function(data){
+      res.json(data)
+    })
+  })
+
   app.post("/api/goalForm", function(req, res) {
     console.log(req.body);
     // We're having trouble assoiciating our two tables, look into the sequelize docs on how to assoicate and then create data with associations
