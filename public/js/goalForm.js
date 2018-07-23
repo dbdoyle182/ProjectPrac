@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
-    
+    var newGoal = $("#newGoal").val().trim();
+    var goalDate = $("#goalDate").val().trim()
 
+    $(document).on("submit", )
+    
+}
 
 
 
