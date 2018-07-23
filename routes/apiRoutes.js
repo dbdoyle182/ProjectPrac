@@ -24,13 +24,13 @@ module.exports = function(app) {
       password: req.body.password,
       phone: req.body.phone
     })
-    .then(function() {
-      res.redirect(307, "/api/login");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+      .then(function() {
+        res.redirect(307, "/api/login");
+      }).catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
 
   // Route for logging user out
@@ -55,7 +55,7 @@ module.exports = function(app) {
     }
   });
 
-  app.post("/api/goalForm", function(req, res){
+  app.post("/api/goalForm", function(req, res) {
     console.log(req.body);
     // We're having trouble assoiciating our two tables, look into the sequelize docs on how to assoicate and then create data with associations
 
@@ -70,9 +70,9 @@ module.exports = function(app) {
 
     // console.log(goalsObj);
 
-    db.Goal.create(req.body).then(function(dbResult){
+    db.Goal.create(req.body).then(function(dbResult) {
       console.log(dbResult);
-    })
-    res.send("success!");
+      res.json(dbResult)
+    });
   });
 };
