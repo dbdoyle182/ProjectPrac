@@ -3,30 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>set Goal</title>
     <link href="./styles/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"> -->
+
+    <link href="./styles/theme3.css" rel="stylesheet">
+    <link href="./styles/styles.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    
+
 
 </head>
 
-<body>
-    <div>
-        <h2>Add a New Goal</h2>
-    </div>
+<body style="background: linear-gradient( #3fa2f3, #1971b9);background-repeat:no-repeat;background-size:cover;width:100%;height:100%;">
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-4">
-                <image class="logo" src="./img/logo3.png" style="height:100%;width:100%;max-width:300px;max-height:250px;margin-left:-100px;"></image>
+            <div class="col-4" id="logoCol">
+                <image class="logo" src="./img/logo3.png"></image>
             </div>
             <div class="col-4"></div>
-            <div class="col-4" style="float: right;">
-                <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="col-4" id="navbar" style="float: right;">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light" id="bootstrap-overrides">
                     <div class="navbar-nav col-3">
                         <a class="nav-item nav-link" href="/">Home</a>
                         <a class="nav-item nav-link" href="/goalDisplay">Goals</a>
@@ -36,66 +37,67 @@
                 </nav>
             </div>
         </div>
-        <div class="container">
+        <div>
+            <div class="header">
+                <h2>Welcome</h2>
+            </div>
             <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-            <div class="bootstrap-iso">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <form id="createGoal">
-                                <div class="form-group ">
-                                    <label class="control-label " for="date">
-                                        New Goal
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <input class="form-control" id="newGoal" name="newGoal" placeholder="Add goal" type="text" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <label class="control-label " for="date">
-                                            Date
-                                        </label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar">
-                                                </i>
-                                            </div>
-                                            <input class="form-control" id="goalDate" name="date" placeholder="MM/DD/YYYY" type="text" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div>
-                                            <button class="btn btn-custom" id= "submit_btn" name="submit">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
-                            </form>
+            <!-- <div class="bootstrap-iso">
+                        <div class="container-fluid"> -->
+            <div class="content row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <form method="post" id="createGoal">
+                        <div class="form-group ">
+                            <label class="control-label " for="date">
+                                New Goal
+                            </label>
+                            <div class="input-group">
+                                <div class="">
+                                    <input class="form-control" id="newGoal" name="newGoal" placeholder="Add goal" type="text" />
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group ">
+                                <label class="control-label " for="date">
+                                    Date
+                                </label>
+                                <div class="input-group">
+                                    <div class="">
+                                        <i class="fa fa-calendar">
+                                        </i>
+                                    </div>
+                                    <input class="form-control" id="goalDate" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <button class="btn btn-custom " id="button" name="submit" type="submit">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                    </form>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+        />
 
+        <script>
+            $(document).ready(function () {
+                var date_input = $('input[name="date"]'); //our date has the name "date"
+                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                date_input.datepicker({
+                    format: 'mm/dd/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    autoclose: true,
+                })
+            })
+        </script>
 
-                <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
-                />
-
-                <script>
-                    $(document).ready(function () {
-                        var date_input = $('input[name="date"]'); //our date has the name "date"
-                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
-                        date_input.datepicker({
-                            format: 'mm/dd/yyyy',
-                            container: container,
-                            todayHighlight: true,
-                            autoclose: true,
-                        })
-                    })
-                </script>
-                <script type="text/javascript" src = "./js/goalForm.js"></script>
 </body>
 
 </html>
