@@ -6,107 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>set Goal</title>
+    <link href="./styles/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
 </head>
 
 <body>
-    <div class="col-4">
-        <image class="logo" src="./img/logo3.png" style="height:100%;width:100%;max-width:300px;max-height:250px;margin-left:-100px;"></image>
-    </div>
-    <div class="col-4" style="float: right;">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="bootstrap-overrides">
-            <div class="navbar-nav col-3">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="/goalDisplay">Goals</a>
-                <a class="nav-item nav-link" href="/goalForm">Add Goal</a>
-                <a class="nav-item nav-link" href="/logout">Logout</a>
-            </div>
-        </nav>
+    <div>
+        <h2>Add a New Goal</h2>
     </div>
     <div class="container">
-
-        <div>
-            <div id="goal">Goals:
-                <div id="goal-view"></div>
-
-                <form id="go-form">
-                    <label for="go-input"></label>
-                    <input type="text" id="go-input">
-                    <br>
-
-                    <input id="add-go" type="submit" value="Add a goal ">
-                </form>
-
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                <script type="text/javascript">
-                    var goal = [];
-
-                    function renderButtons() {
-
-                        $("#goal-view").empty();
-
-                        for (var i = 0; i < goal.length; i++) {
-
-                            var a = $("<button>");
-                            a.addClass("go");
-                            a.attr("data-name", goal[i]);
-                            a.text(goal[i]);
-                            $("#goal-view").append(a);
-                        }
-                    }
-
-                    $("#add-go").on("click", function (event) {
-                        event.preventDefault();
-
-                        var go = $("#go-input").val().trim();
-                        goal.push(go);
-
-                        renderButtons();
-                    });
-
-                    renderButtons();
-                </script>
-
-                <div class="form-group">
-                    <label for="exampleInputPassword1">At what time would you like to be reminded of your goal?</label>
-                    <input type="time" class="form-control" id="mytime" placeholder="Select Time">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">When would you like to log your progess?
-                    </label>
-                    <input type="time" class="form-control" id="mytime" placeholder="Select Time">
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">How often would you like to be reminded?</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-
-                        <option value="5">Daily</option>
-                        <option value="10">Every 2 days</option>
-                        <option value="15">Every 3 days</option>
-                        <option value="30">Every 4 days</option>
-                        <option value="60">Every 5 days</option>
-                        <option value="120">Every 6 days</option>
-                        <option value="240">Every 7 days</option>
-                        <option value="10080">Every 1 week</option>
-                        <option value="20160">Every 2 weeks</option>
-                        <option value="30240">Every 3 weeks</option>
-                        <option value="40320">Every 4 weeks</option>
-                    </select>
-                </div>
-                <button type="submit" id="add-go" class="btn btn-primary">Submit</button>
-                </form>
+        <br>
+        <div class="row">
+            <div class="col-4">
+                <image class="logo" src="./img/logo3.png" style="height:100%;width:100%;max-width:300px;max-height:250px;margin-left:-100px;"></image>
             </div>
+            <div class="col-4"></div>
+            <div class="col-4" style="float: right;">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="navbar-nav col-3">
+                        <a class="nav-item nav-link" href="/">Home</a>
+                        <a class="nav-item nav-link" href="/goalDisplay">Goals</a>
+                        <a class="nav-item nav-link" href="/goalForm">Add Goal</a>
+                        <a class="nav-item nav-link" href="/logout">Logout</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="container">
+            <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+            <div class="bootstrap-iso">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <form method="post" id="createGoal">
+                                <div class="form-group ">
+                                    <label class="control-label " for="date">
+                                        New Goal
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <input class="form-control" id="newGoal" name="newGoal" placeholder="Add goal" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label class="control-label " for="date">
+                                            Date
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-calendar">
+                                                </i>
+                                            </div>
+                                            <input class="form-control" id="goalDate" name="date" placeholder="MM/DD/YYYY" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div>
+                                            <button class="btn btn-custom " name="submit" type="submit">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-                crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-                crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
-            <script src="timer.js"></script>
+
+                <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
+                />
+
+                <script>
+                    $(document).ready(function () {
+                        var date_input = $('input[name="date"]'); //our date has the name "date"
+                        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                        date_input.datepicker({
+                            format: 'mm/dd/yyyy',
+                            container: container,
+                            todayHighlight: true,
+                            autoclose: true,
+                        })
+                    })
+                </script>
 </body>
 
 </html>
