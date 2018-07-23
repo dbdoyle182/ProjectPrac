@@ -3,9 +3,21 @@ $(document).ready(function() {
     var newGoal = $("#newGoal").val().trim();
     var goalDate = $("#goalDate").val().trim()
 
-    $(document).on("submit", )
-    
-}
+    $(document).on("submit", "createGoal", handleGoalFormSubmit);
+
+    function handleGoalFormSubmit(event) {
+        event.preventDefault();
+        // Don't do anything if the input fields are empty
+        if (!newGoal || !goalDate) {
+            return;
+        }
+        updateGoalModel({
+            goal: newGoal,
+            goalDate: goalDate,
+        })
+    } 
+
+});
 
 
 
