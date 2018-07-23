@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set Goal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="./styles/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <image class="logo" src="./img/logo3.png" style="height:100%;width:100%;max-width:300px;max-height:250px;margin-left:-100px;"></image>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                    <div id="goal-view"></div>
+                    <label>What is your Goal?</label>
+                    <form id="go-form" class="form-group">
+                        <label for="go-input"></label>
+                        <input type="text" id="go-input" style="border:1px;border-style:solid;border-radius:5px;border-color:#cecece;width: 80%;height:40px;">
+                        <br>
+                    </form>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <script type="text/javascript">
+                        var goal = [];
+
+                        function renderButtons() {
+
+                            $("#goal-view").empty();
+
+                            for (var i = 0; i < goal.length; i++) {
+
+                                var a = $("<button>");
+                                a.addClass("go");
+                                a.attr("data-name", goal[i]);
+                                a.text(goal[i]);
+                                $("#goal-view").append(a);
+                            }
+                        }
+
+                        $("#add-go").on("click", function (event) {
+                            event.preventDefault();
+
+                            var go = $("#go-input").val().trim();
+                            goal.push(go);
+
+                            renderButtons();
+                        });
+
+                        renderButtons();
+                    </script>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">At what time would you like to be reminded of your goal?</label>
+                        <input type="time" class="form-control" id="mytime" placeholder="Select Time">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">When would you like to log your progess?
+                        </label>
+                        <input type="time" class="form-control" id="mytime" placeholder="Select Time">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">How often would you like to be reminded?</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+
+                            <option value="5">Daily</option>
+                            <option value="10">Every 2 days</option>
+                            <option value="15">Every 3 days</option>
+                            <option value="30">Every 4 days</option>
+                            <option value="60">Every 5 days</option>
+                            <option value="120">Every 6 days</option>
+                            <option value="240">Every 7 days</option>
+                            <option value="10080">Every 1 week</option>
+                            <option value="20160">Every 2 weeks</option>
+                            <option value="30240">Every 3 weeks</option>
+                            <option value="40320">Every 4 weeks</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="add-go" class="btn btn-primary button">Submit</button>
+                    </form>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="timer.js"></script>
+</body>
+
+</html>
