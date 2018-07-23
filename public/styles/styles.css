@@ -19,12 +19,17 @@ h3 {
   text-shadow: 1px 1px 4px #4e4e4e;
 }
 
+h5 {
+  color: #eeeeee;
+  text-align: center;
+  text-shadow:1px 1px 3px #4e4e4e;
+  margin-top: 10px;
+}
+
 label {
   color: #ffffff;
   text-shadow: 1px 1px 3px #4e4e4e;
 }
-
-
 
 .list-group-item {
   line-height: 2.5;
@@ -54,6 +59,7 @@ label {
   color: #eeeeee !important;
   text-shadow:1px 1px 3px #4e4e4e !important;
   padding: 10px !important;
+  font-size: 20px;
 }
 
 #navbar {
@@ -65,27 +71,18 @@ label {
   margin-top: -30px;
 }
 
-h5 {
-  color: #eeeeee;
-  text-align: center;
-  text-shadow:1px 1px 3px #4e4e4e;
-  margin-top: 10px;
-}
-
-
-
 .form-control {
   box-shadow: 1px 1px 2px #2758a1,
               -1px -1px 2px #2758a1;
-  width: 500px !important;
+  width: 600px !important;
   margin-left: 50%;
   margin-right: 50%;
 }
 
 .control-label {
-  margin-left: 50%;
-  margin-right: 50%;
-  width: 100px;
+  margin-left: 55%;
+  margin-right: 45%;
+  width: 200px;
 }
 
 #button {
@@ -109,11 +106,20 @@ h5 {
   margin-right: 25%;
   border-radius: 5px;
   padding: 40px;
+  box-shadow: 1px 1px 3px #7a7a7a;
+  box-shadow: -1px -1px 3px #7a7a7a;
 }
 
 #welcome {
   text-align: center;
   margin-bottom: 100px;
+}
+
+#goal {
+  text-align: left;
+  margin-left: 250px;
+  margin-top: -10px;
+  margin-bottom: 50px;
 }
 
 .button {
