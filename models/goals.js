@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Goal = sequelize.define("Goal", {
     goal: {
       type: DataTypes.STRING,
@@ -20,9 +20,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       default: false
     }
-  });
+  },
+    {
+      timestamps: false
+    })
 
-  Goal.associate = function(models) {
+  Goal.associate = function (models) {
     Goal.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
