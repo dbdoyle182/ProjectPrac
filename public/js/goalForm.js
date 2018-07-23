@@ -1,21 +1,31 @@
-$(document).ready(function() {
+$(document).ready(function () {
+console.log("This loaded properly!")
+  var newGoal = $("#newGoal").val().trim();
+  var goalDate = $("#goalDate").val().trim()
 
-    var newGoal = $("#newGoal").val().trim();
-    var goalDate = $("#goalDate").val().trim()
+  
 
-    $(document).on("submit", "createGoal", handleGoalFormSubmit);
-
-    function handleGoalFormSubmit(event) {
-        event.preventDefault();
-        // Don't do anything if the input fields are empty
-        if (!newGoal || !goalDate) {
-            return;
+  $("#submit_btn").on("click", function() {
+      console.log("CLICK")
+      console.log("New Goal: ", newGoal)
+      console.log("Goal Date: ", goalDate)
+    event.preventDefault();
+    // Don't do anything if the input fields are empty
+    if ( newGoal === "" || goalDate === "") {
+      return alert("Please fill out the form completely.");
+        } else {
+            var goal = {
+                goal: newGoal,
+                goalDate: goalDate
+            }
+            console.log(goal)
+            $.post("/api/goalForm", goal, function (data) {
+                $("#newGoal").val("")
+                $("#goalDate").val("")
+                alert("Successfully added new Goal!")
+            })
         }
-        updateGoalModel({
-            goal: newGoal,
-            goalDate: goalDate,
-        })
-    } 
+    })
 
 });
 
@@ -25,7 +35,9 @@ $(document).ready(function() {
 
 
 
-
+// updateGoalModel({
+    //     goal: newGoal,
+    //     goalDate: goalDate,
 
 
 
