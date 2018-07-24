@@ -37,7 +37,8 @@ $(document).ready(function () {
             })
             var refinedDate = goalDate.split("T")
             completedBtn.text("Completed");
-            console.log(data[i]);
+          
+            console.log(refinedDate[0]);
          $("#goalInfo").append("<br> Goal: " + data[i].goal);
          $("#goalInfo").append("<br> Date: " + refinedDate[0]);
          $("#goalInfo").append(updateBtn);
