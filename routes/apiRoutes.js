@@ -96,10 +96,6 @@ module.exports = function(app) {
     console.log(req.params.id);
     console.log(req.body);
   
-<<<<<<< HEAD
-=======
-
->>>>>>> e7b75e902f713e2bcd072b922b818b0d5b600a0d
     db.Goal.create(req.body).then(function(dbResult) {
       // console.log("dbResult: ", dbResult);
       res.json(dbResult)
