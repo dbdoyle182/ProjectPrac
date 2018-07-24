@@ -40,7 +40,7 @@ $(document).ready(function () {
             var refinedDate = data[i].goalDate.split("T")
             console.log(refinedDate[0])
          $("#goalInfo").append("<br> Goal: " + data[i].goal);
-         $("#goalInfo").append("<br> Date: " + data[i].goalDate);
+         $("#goalInfo").append("<br> Date: " + refinedDate[0]);
          $("#goalInfo").append(updateBtn);
          $("#goalInfo").append(btn);
         // $("#goalsInfo").append(`<button class='delete' data-id='${data[i].id}'>Delete</button>`);
