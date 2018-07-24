@@ -28,12 +28,20 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
-  app.get("/goalDisplay", isAuthenticated, function (req, res) {
+  app.get("/goalDisplay/:id", isAuthenticated, function(req, res) {
+
+    console.log("goalDisplay req.params.id", req.params.id);
     res.sendFile(path.join(__dirname, "../public/goalDisplay.html"));
   });
 
-  app.get("/goalForm", isAuthenticated, function (req, res) {
+  app.get("/goalForm/:id", isAuthenticated, function (req, res) {
+    console.log(req.params.id);
     res.sendFile(path.join(__dirname, "../public/goalForm.html"));
+
+    // var userObj = {
+    //   id: req.params.id
+    // }
+    // res.json(userObj);
   });
 
   // test route

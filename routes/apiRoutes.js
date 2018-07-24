@@ -55,13 +55,45 @@ module.exports = function(app) {
     }
   });
 
-  app.get("/api/goalDisplay", function(req, res) {
-    db.Goal.findAll({}).then(function(data){
+  app.get("/api/goalDisplay/:id", function(req, res) {
+    console.log("api/goalDisplay/:id was run", req.params.id);
+    db.Goal.findAll({
+      where: {
+        UserId: req.params.id
+      }
+    }).then(function(data){
+      // console.log("This is line 61 of API Routes", data)
       res.json(data)
+      
     })
   })
 
-  app.post("/api/goalForm", function(req, res) {
+  app.delete("/api/delete/:id", function(req, res){
+    console.log("DELETE THIS ID: " + req.params.id);
+
+    db.Goal.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbDestroy){
+      console.log(dbDestroy);
+    })
+
+  })
+
+  app.put("/api/completed/:id", function(req, res){
+    db.Goal.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(completed){
+      console.log(completed);
+    })
+  })
+
+  app.post("/api/goalForm/:id", function(req, res) {
+
+    console.log(req.params.id);
     console.log(req.body);
     // We're having trouble assoiciating our two tables, look into the sequelize docs on how to assoicate and then create data with associations
 
@@ -77,7 +109,7 @@ module.exports = function(app) {
     // console.log(goalsObj);
 
     db.Goal.create(req.body).then(function(dbResult) {
-      console.log(dbResult);
+      // console.log("dbResult: ", dbResult);
       res.json(dbResult)
     });
   });
