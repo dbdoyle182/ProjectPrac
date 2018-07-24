@@ -38,10 +38,6 @@ module.exports = function (app) {
     console.log(req.params.id);
     res.sendFile(path.join(__dirname, "../public/goalForm.html"));
 
-    // var userObj = {
-    //   id: req.params.id
-    // }
-    // res.json(userObj);
   });
 
   // test route
