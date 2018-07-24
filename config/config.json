@@ -2,12 +2,10 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "blogger",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
-    },
+    "database": "accountably_db",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
     "test": {
       "username": "root",
       "password": "root",
@@ -21,4 +19,3 @@
       "dialect": "mysql"
     }
   }
-}

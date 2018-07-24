@@ -35,9 +35,9 @@ module.exports = function (app) {
   });
 
   app.get("/goalForm/:id", isAuthenticated, function (req, res) {
-    console.log(req.params.id);
+    // console.log(req.params.id);
     res.sendFile(path.join(__dirname, "../public/goalForm.html"));
-
+    console.log("GoalForm HIT!");
     // var userObj = {
     //   id: req.params.id
     // }

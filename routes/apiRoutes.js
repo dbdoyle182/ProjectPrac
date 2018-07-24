@@ -62,7 +62,7 @@ module.exports = function(app) {
         UserId: req.params.id
       }
     }).then(function(data){
-      // console.log("This is line 61 of API Routes", data)
+      console.log("This is line 61 of API Routes", data)
       res.json(data)
       
     })
@@ -95,19 +95,7 @@ module.exports = function(app) {
 
     console.log(req.params.id);
     console.log(req.body);
-    // We're having trouble assoiciating our two tables, look into the sequelize docs on how to assoicate and then create data with associations
-
-    // let goalsObj = {
-    //   goal: req.body.goal,
-    //   // remindTime: req.body.remindTime,
-    //   // progressCheck: req.body.progressCheck,
-    //   goalDate: req.body.goalDate,
-    //   completed: req.body.completed,
-    //   UserId: req.body.UserId
-    // }
-
-    // console.log(goalsObj);
-
+  
     db.Goal.create(req.body).then(function(dbResult) {
       // console.log("dbResult: ", dbResult);
       res.json(dbResult)

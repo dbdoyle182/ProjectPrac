@@ -10,22 +10,7 @@ $(document).ready(function () {
 
         console.log(data);
 
-
-        // console.log(data[0].goal)
-
-
-
-// we need to loop through the data response and display the goal and goaldate; next to each goal we can add update/delete and complete buttons
-// onclick if the value of complete = true then make a change to database with a route put/update
-
-    // console.log(data)
-    // }
-        // $.post("/api/goalDisplay", function(data){
-        //console.log("survey response:" + data.name);
-
-        // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
         for (var i = 0; i < data.length; i++) {
-
 
             if(!data[i].completed){
                 var btn = $("<button>");
@@ -60,7 +45,7 @@ $(document).ready(function () {
          $("#goalInfo").append(completedBtn)
             }else{
                 var completedDiv = $("<h3>")
-                completedDiv.text(data[i].goal + "checkmark");
+                completedDiv.text(data[i].goal);
 
                 $("#completed").append(completedDiv);
             }
@@ -111,5 +96,11 @@ $(document).ready(function () {
         
 
     }); 
+    $(document).on("click", "#addGoals", function(){
+        location.assign("/goalForm/" + userId)
+    })
 
+    $(document).on("click", "#goalDisplay", function(){
+        location.assign("/goalDisplay/" + userId);
+    })
 })
