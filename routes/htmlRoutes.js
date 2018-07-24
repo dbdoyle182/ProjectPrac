@@ -9,6 +9,7 @@ module.exports = function (app) {
   app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
+      console.log("Redirect firing")
       res.redirect("/members");
     }
     res.sendFile(path.join(__dirname, "../public/signup.html"));
@@ -19,24 +20,24 @@ module.exports = function (app) {
     if (req.user) {
       res.redirect("/members");
     }
-    res.sendFile(path.join(__dirname, "../public/login.html"));
+    res.sendFile(path.join(__dirname, "/../public/login.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+    res.sendFile(path.join(__dirname, "/../public/members.html"));
   });
 
   app.get("/goalDisplay/:id", isAuthenticated, function(req, res) {
 
     console.log("goalDisplay req.params.id", req.params.id);
-    res.sendFile(path.join(__dirname, "../public/goalDisplay.html"));
+    res.sendFile(path.join(__dirname, "/../public/goalDisplay.html"));
   });
 
   app.get("/goalForm/:id", isAuthenticated, function (req, res) {
     // console.log(req.params.id);
-    res.sendFile(path.join(__dirname, "../public/goalForm.html"));
+    res.sendFile(path.join(__dirname, "/../public/goalForm.html"));
     console.log("GoalForm HIT!");
     // var userObj = {
     //   id: req.params.id
