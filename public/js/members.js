@@ -1,14 +1,19 @@
 $(document).ready(function () {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
+    var userId;
     $.get("/api/user_data").then(function(data) {
+        console.log(data);
       $(".member-name").text(data.email);
+
+      userId = data.id;
     });
+    
 
 
     var events = [
 
-        { 'Date': new Date(2018, 6, 21), 'Title': 'Go to the Gym', 'Link': '/test' },
+        { 'Date': new Date(2018, 6, 21), 'Title': "Test Stuff", 'Link': '/test' },
 
         { 'Date': new Date(2018, 6, 25), 'Title': 'Drink 8 cups of water', 'Link': '/test' },
 
@@ -48,6 +53,14 @@ $(document).ready(function () {
 
     caleandar(element, events, settings);
 
+
+    $(document).on("click", "#addGoals", function(){
+        location.assign("/goalForm/" + userId)
+    })
+
+    $(document).on("click", "#goalDisplay", function(){
+        location.assign("/goalDisplay/" + userId);
+    })
 
 
 
