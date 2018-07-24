@@ -36,7 +36,9 @@ $(document).ready(function () {
                 "data-user": data[i].UserId
             })
             completedBtn.text("Completed");
-            console.log(data[i]);
+            console.log(data[i].goalDate.split("T"))
+            var refinedDate = data[i].goalDate.split("T")
+            console.log(refinedDate[0])
          $("#goalInfo").append("<br> Goal: " + data[i].goal);
          $("#goalInfo").append("<br> Date: " + data[i].goalDate);
          $("#goalInfo").append(updateBtn);
