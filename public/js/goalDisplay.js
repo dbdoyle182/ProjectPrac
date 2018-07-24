@@ -35,7 +35,7 @@ $(document).ready(function () {
                 "data-date": data[i].goalData,
                 "data-user": data[i].UserId
             })
-            var refinedDate = goalDate.split("T")
+            var refinedDate = goalData.split("T")
             completedBtn.text("Completed");
           
             console.log(refinedDate[0]);
