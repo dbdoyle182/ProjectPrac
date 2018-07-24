@@ -166,3 +166,34 @@ label {
   margin-right: 600px !important;
   margin-bottom: 50px !important;
 }
+
+.update {
+  background: linear-gradient( #e7a516, #d69915);
+  padding: 10px;
+}
+
+.delete {
+  background: linear-gradient( #e7a516, #d69915);
+  padding: 10px;
+}
+
+.completed {
+  background: linear-gradient( #e7a516, #d69915);
+  padding: 10px;
+}
+
+#goalInfo {
+  color: #eeeeee !important;
+  font-size: 22px !important;
+  margin-top: 20px !important;
+  margin-left: 25% !important;
+  
+
+}
+
+#completed {
+  color: #eeeeee !important;
+  font-size: 22px !important;
+  margin-top: 20px !important;
+  margin-left: 25% !important;
+}
