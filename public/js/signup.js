@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log("Signup js")
     // Getting references to our form and input
     var signUpForm = $("form.signup");
     var emailInput = $("input#email-input");
@@ -35,7 +36,7 @@ $(document).ready(function() {
         phone: user.phone
         
       }).then(function(data) {
-        window.location.replace(data);
+        window.location.replace("/login");
         // If there's an error, handle it by throwing up a boostrap alert
       }).catch(handleLoginErr);
     }

@@ -25,7 +25,7 @@ module.exports = function(app) {
       phone: req.body.phone
     })
       .then(function() {
-        res.redirect(307, "/api/login");
+        res.redirect("/login");
       }).catch(function(err) {
         console.log(err);
         res.json(err);

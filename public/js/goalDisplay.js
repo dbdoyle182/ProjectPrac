@@ -97,10 +97,11 @@ $(document).ready(function () {
 
     }); 
     $(document).on("click", "#addGoals", function(){
-        location.assign("/goalForm/" + userId)
+        console.log(UserId)
+        location.assign("/goalForm/" + UserId)
     })
 
     $(document).on("click", "#goalDisplay", function(){
-        location.assign("/goalDisplay/" + userId);
+        location.assign("/goalDisplay/" + UserId);
     })
 })

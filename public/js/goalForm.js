@@ -39,7 +39,12 @@ $(document).ready(function () {
         
     $(document).on("click", "#goalDisplay", function(){
         location.assign("/goalDisplay/" + UserId);
-    })
+    });
+
+    $(document).on("click", "#addGoals", function(){
+        console.log(UserId)
+        location.assign("/goalForm/" + UserId)
+    });
     
     });
     
