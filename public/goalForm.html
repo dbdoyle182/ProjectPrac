@@ -11,7 +11,6 @@
         crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
 </head>
 
 <body>
@@ -25,6 +24,7 @@
             <div class="col-4"></div>
             <div class="col-4" style="float: right;">
                 <nav class="navbar navbar-expand-lg navbar-light">
+
                     <div class="navbar-nav col-3" id="goalNav">
                         <a class="navibar nav-item nav-link" href="/">Home</a>
 
@@ -34,6 +34,7 @@
 
                         <a class="navibar nav-item nav-link" href="/goalForm">Add Goal</a>
                         <a class="navibar nav-item nav-link" href="/logout">Logout</a>
+
                     </div>
                 </nav>
             </div>
@@ -81,13 +82,10 @@
                         </div>
                     </div>
                 </div>
-
-
                 <!-- Extra JavaScript/CSS added manually in "Settings" tab -->
                 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"
                 />
-
                 <script>
                     $(document).ready(function () {
                         var date_input = $('input[name="date"]'); //our date has the name "date"

@@ -13,11 +13,15 @@ $(document).ready(function () {
 
     var events = [
 
-        { 'Date': new Date(2018, 6, 21), 'Title': "Test Stuff", 'Link': '/test' },
+        { 'Date': new Date(2018, 6, 21), 'Title': "Go to Gym", 'Link': '/test' },
 
         { 'Date': new Date(2018, 6, 25), 'Title': 'Drink 8 cups of water', 'Link': '/test' },
 
         { 'Date': new Date(2018, 6, 22), 'Title': 'Only watch 1 hour of TV', 'Link': '/test' },
+
+        { 'Date': new Date(2018, 7, 01), 'Title': 'Run a mile', 'Link': '/test' },
+
+        { 'Date': new Date(2018, 6, 26), 'Title': 'Read a book', 'Link': '/test' },
 
     ];
 

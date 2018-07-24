@@ -62,7 +62,7 @@ module.exports = function(app) {
         UserId: req.params.id
       }
     }).then(function(data){
-      // console.log("This is line 61 of API Routes", data)
+      console.log("This is line 61 of API Routes", data)
       res.json(data)
       
     })
@@ -96,7 +96,6 @@ module.exports = function(app) {
     console.log(req.params.id);
     console.log(req.body);
   
-
     db.Goal.create(req.body).then(function(dbResult) {
       // console.log("dbResult: ", dbResult);
       res.json(dbResult)
