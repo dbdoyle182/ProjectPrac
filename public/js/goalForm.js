@@ -18,7 +18,7 @@ console.log("This loaded properly!")
       console.log("Goal Date: ", goalDate)
     event.preventDefault();
     // Don't do anything if the input fields are empty
-    if (newGoal === "" || goalDate === "") {
+    if ( newGoal === "" || goalDate === "") {
       return alert("Please fill out the form completely.");
         } else {
             var goal = {
