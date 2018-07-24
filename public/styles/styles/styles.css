@@ -9,7 +9,7 @@ body, html {
 }
 
 h2 {
-  color: #eeeeee;
+  color: #eeeeee !important;
   text-shadow: 1px 1px 4px #4e4e4e;
   text-align: center;
 }
@@ -67,6 +67,10 @@ label {
   margin-top: -30px!important;
 }
 
+.navibar {
+  font-size: 18px !important;
+}
+
 .content {
   margin-top: -30px;
 }
@@ -74,14 +78,14 @@ label {
 .form-control {
   box-shadow: 1px 1px 2px #2758a1,
               -1px -1px 2px #2758a1;
-  width: 600px !important;
+  /* width: 600px !important; */
   margin-left: 50%;
   margin-right: 50%;
 }
 
 .control-label {
-  margin-left: 55%;
-  margin-right: 45%;
+  margin-left: 60%;
+  margin-right: 40%;
   width: 200px;
 }
 
@@ -130,4 +134,35 @@ label {
   border-radius: 3px;
   color: white;
   border-color: #d69915;
+}
+
+#goalHeader {
+  margin-right: 390px;
+}
+
+#goalLogo {
+  margin-right: 560px !important;
+}
+
+#newGoal {
+  margin-left: 300px !important;
+}
+
+#goalDate {
+  margin-left: 300px !important;
+  width: 500px !important;
+}
+
+#submit_btn {
+  margin-left: 300px !important;
+}
+
+#nav {
+  margin-top: 50px;
+  margin-right: 200px;
+}
+
+#goalslLogo {
+  margin-right: 600px !important;
+  margin-bottom: 50px !important;
 }
