@@ -37,11 +37,15 @@ module.exports = function (app) {
   app.get("/goalForm/:id", isAuthenticated, function (req, res) {
     // console.log(req.params.id);
     res.sendFile(path.join(__dirname, "../public/goalForm.html"));
+<<<<<<< HEAD
     console.log("GoalForm HIT!");
     // var userObj = {
     //   id: req.params.id
     // }
     // res.json(userObj);
+=======
+
+>>>>>>> e7b75e902f713e2bcd072b922b818b0d5b600a0d
   });
 
   // test route

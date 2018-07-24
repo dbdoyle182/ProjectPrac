@@ -9,7 +9,6 @@ $(document).ready(function () {
     //   console.log("userID in array format: ", userId);
     
       $("#submit_btn").on("click", function() {
-        event.preventDefault()
         var newGoal = $("#newGoal").val().trim();
         var goalDate = $("#goalDate").val().trim()
         // var UserId = 1
@@ -17,7 +16,7 @@ $(document).ready(function () {
           console.log("CLICK")
           console.log("New Goal: ", newGoal)
           console.log("Goal Date: ", goalDate)
-        ;
+        event.preventDefault();
         // Don't do anything if the input fields are empty
         if ( newGoal === "" || goalDate === "") {
           return alert("Please fill out the form completely.");
@@ -38,13 +37,10 @@ $(document).ready(function () {
         })
     
         
-        $(document).on("click", "#addGoals", function(){
-            location.assign("/goalForm/" + UserId)
-        })
-    
-        $(document).on("click", "#goalDisplay", function(){
-            location.assign("/goalDisplay/" + UserId);
-        })
+    $(document).on("click", "#goalDisplay", function(){
+        location.assign("/goalDisplay/" + UserId);
+    })
     
     });
+    
     
