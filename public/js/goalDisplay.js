@@ -35,12 +35,10 @@ $(document).ready(function () {
                 "data-date": data[i].goalData,
                 "data-user": data[i].UserId
             })
-            var refinedDate = goalData.split("T")
             completedBtn.text("Completed");
-          
-            console.log(refinedDate[0]);
+            console.log(data[i]);
          $("#goalInfo").append("<br> Goal: " + data[i].goal);
-         $("#goalInfo").append("<br> Date: " + refinedDate[0]);
+         $("#goalInfo").append("<br> Date: " + data[i].goalDate);
          $("#goalInfo").append(updateBtn);
          $("#goalInfo").append(btn);
         // $("#goalsInfo").append(`<button class='delete' data-id='${data[i].id}'>Delete</button>`);
