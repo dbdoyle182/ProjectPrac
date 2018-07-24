@@ -45,6 +45,9 @@ $(document).ready(function () {
         console.log(UserId)
         location.assign("/goalForm/" + UserId)
     });
+    $(document).on("click", "#home", function(){
+        location.assign("/members");
+    })
     
     });
     

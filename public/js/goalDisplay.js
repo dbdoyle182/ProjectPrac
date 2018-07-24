@@ -106,4 +106,8 @@ $(document).ready(function () {
     $(document).on("click", "#goalDisplay", function(){
         location.assign("/goalDisplay/" + UserId);
     })
+
+    $(document).on("click", "#home", function(){
+        location.assign("/members");
+    })
 })
