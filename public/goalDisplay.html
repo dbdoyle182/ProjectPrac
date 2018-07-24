@@ -10,12 +10,12 @@
     <link href="../styles/styles.css" rel="stylesheet">
 </head>
 
-<body style="background: linear-gradient( #3fa2f3, #1971b9);background-repeat:no-repeat;background-size:cover;width:100%;height:100%;">
+<body>
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-4">
-                <image class="logo" src="../img/logo3.png" style="height:100%;width:100%;max-width:300px;max-height:250px;margin-left:-100px;"></image>
+            <div class="col-4" id="goalLogo">
+                <image class="logo" src="../img/logo3.png"></image>
             </div>
             <div class="col-4"></div>
             <div class="col-4" id="navbar" style="float: right;">
@@ -37,14 +37,15 @@
     </div>
 
 
-        <div id="goalInfo"></div>
-
+    <div id="goalInfo"></div>
+    <div class="header" id="goalHeader">
         <h2>Completed Goals</h2>
-        <div id="completed"></div>
+    </div>
+    <div id="completed"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="../js/caleandar.js"></script>
-        <script type="text/javascript" src="../js/goalDisplay.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../js/caleandar.js"></script>
+    <script type="text/javascript" src="../js/goalDisplay.js"></script>
 
 
 

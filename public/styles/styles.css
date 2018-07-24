@@ -131,3 +131,11 @@ label {
   color: white;
   border-color: #d69915;
 }
+
+#goalHeader {
+  margin-right: 390px;
+}
+
+#goalLogo {
+  margin-right: 560px !important;
+}
